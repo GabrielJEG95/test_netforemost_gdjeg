@@ -39,7 +39,7 @@ namespace test_netforemost_gdjeg
 
                 foreach (var item in cuentas_cobro)
                 {
-                    Console.WriteLine($"IDCuenta: {item.IdCuenta}, IdAgente: {item.IdAgente}, Agente: {item.Agente}, Saldo: {item.Saldo}");
+                    Console.WriteLine($"IDCuenta: {item.IdCuenta}, Cliente: {item.Cliente} IdAgente: {item.IdAgente}, Agente: {item.Agente}, Saldo: {item.Saldo}");
                 }
             }
         }

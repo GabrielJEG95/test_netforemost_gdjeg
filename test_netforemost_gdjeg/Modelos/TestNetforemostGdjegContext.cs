@@ -70,17 +70,32 @@ public partial class TestNetforemostGdjegContext : DbContext
             entity.Property(e => e.FechaCreacion)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
+
+            entity.HasOne(d => d.IdClienteNavigation).WithMany(p => p.CuentasClientes)
+                .HasForeignKey(d => d.IdCliente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__cuentas_c__IdCli__5BE2A6F2");
         });
 
         modelBuilder.Entity<CuentasCobro>(entity =>
         {
-            entity.HasKey(e => e.IdCuentaCobro).HasName("PK__cuentas___9C7BC808113B460A");
+            entity.HasKey(e => e.IdCuentaCobro).HasName("PK__cuentas___9C7BC8087FC55F30");
 
             entity.ToTable("cuentas_cobro");
 
             entity.Property(e => e.FechaCreacion)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
+
+            entity.HasOne(d => d.IdAgenteNavigation).WithMany(p => p.CuentasCobros)
+                .HasForeignKey(d => d.IdAgente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__cuentas_c__IdAge__5CD6CB2B");
+
+            entity.HasOne(d => d.IdCuentaClienteNavigation).WithMany(p => p.CuentasCobros)
+                .HasForeignKey(d => d.IdCuentaCliente)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__cuentas_c__IdCue__5DCAEF64");
         });
 
         OnModelCreatingPartial(modelBuilder);

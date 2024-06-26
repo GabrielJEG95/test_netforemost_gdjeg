@@ -12,4 +12,8 @@ public partial class CuentasCliente
     public int Saldo { get; set; }
 
     public DateTime FechaCreacion { get; set; }
+
+    public virtual ICollection<CuentasCobro> CuentasCobros { get; set; } = new List<CuentasCobro>();
+
+    public virtual Cliente IdClienteNavigation { get; set; } = null!;
 }

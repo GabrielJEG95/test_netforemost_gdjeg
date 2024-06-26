@@ -14,4 +14,6 @@ public partial class Agente
     public DateTime FechaCreacion { get; set; }
 
     public DateTime? FechaAnulacion { get; set; }
+
+    public virtual ICollection<CuentasCobro> CuentasCobros { get; set; } = new List<CuentasCobro>();
 }

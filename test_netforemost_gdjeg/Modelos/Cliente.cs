@@ -14,4 +14,6 @@ public partial class Cliente
     public DateTime FechaCreacion { get; set; }
 
     public DateTime? FechaAnulacion { get; set; }
+
+    public virtual ICollection<CuentasCliente> CuentasClientes { get; set; } = new List<CuentasCliente>();
 }

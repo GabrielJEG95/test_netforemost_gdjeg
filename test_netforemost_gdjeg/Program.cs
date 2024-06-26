@@ -14,7 +14,7 @@ namespace test_netforemost_gdjeg
             var context = new TestNetforemostGdjegContext();
 
             await ejecutarSPSaldos();
-            await consultaSaldosAgentes();
+            consultaSaldosAgentes();
 
             async Task ejecutarSPSaldos()
             {
@@ -30,6 +30,7 @@ namespace test_netforemost_gdjeg
                 var cuentas_cobro = context.CuentasCobros.Select(s => new dtoCuentaCobro
                 {
                     IdCuenta = s.IdCuentaCliente,
+                    Cliente =s.IdCuentaClienteNavigation.IdClienteNavigation.NombreCliente,
                     IdAgente = s.IdAgente,
                     Agente = s.IdAgenteNavigation.NombreAgente,
                     Saldo = s.IdCuentaClienteNavigation.Saldo

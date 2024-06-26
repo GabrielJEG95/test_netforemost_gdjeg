@@ -9,6 +9,7 @@ namespace test_netforemost_gdjeg.Modelos.dto
     public class dtoCuentaCobro
     {
         public int IdAgente { get; set; }
+        public string? Cliente {  get; set; } 
         public int IdCuenta { get;set; }
         public string? Agente {  get; set; } 
         public int Saldo { get; set; }
